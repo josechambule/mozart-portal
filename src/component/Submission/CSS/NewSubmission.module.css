@@ -1,0 +1,125 @@
+.card {
+  width: 99%;
+  max-width: 45rem;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.control {
+  margin: 1rem 0;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+/*
+.control label,
+.control input,
+.control select {
+  display: block;
+}*/
+
+.control label {
+  font-weight: bold;
+  flex: 1;
+  color: #464646;
+  margin-bottom: 0.5rem;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.control input {
+  flex: 3;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.nonedisplay {
+  display: none;
+}
+
+.control input:focus {
+  outline: none;
+  border-color: #4f005f;
+  background: #f6dbfc;
+}
+
+.control.invalid input {
+  border-color: red;
+  background: #fbdada;
+}
+
+.actions {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.cabecalho {
+  width: 100%;
+  height: 45px;
+  padding: 20px 0 0 0;
+  margin: 0;
+}
+
+.cabecalho p {
+  padding-left: 2rem;
+  display: inline-block;
+  text-align: end;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.cabecalho button {
+  background: white;
+  background-image: -webkit-linear-gradient(top, transparent, transparent);
+  background-image: -moz-linear-gradient(top, transparent, transparent);
+  background-image: -ms-linear-gradient(top, transparent, transparent);
+  background-image: -o-linear-gradient(top, transparent, transparent);
+  background-image: linear-gradient(to bottom, transparent, transparent);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 0px 0px 0px #666666;
+  font-family: Arial;
+  color: #666666;
+  font-size: 20px;
+  padding: 0 20px 0 20px;
+  text-decoration: none;
+  border: 0;
+  float: right;
+}
+
+.cabecalho button:hover {
+  background: white;
+  background-image: -webkit-linear-gradient(top, transparent, transparent);
+  background-image: -moz-linear-gradient(top, transparent, transparent);
+  background-image: -ms-linear-gradient(top, transparent, transparent);
+  background-image: -o-linear-gradient(top, transparent, transparent);
+  background-image: linear-gradient(to bottom, transparent, transparent);
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .control {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+
+.control select {
+  flex: 3;
+  font: inherit;
+  padding: 0.35rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.control select:focus {
+  outline: none;
+  border-color: #4f005f;
+  background: #f6dbfc;
+}
