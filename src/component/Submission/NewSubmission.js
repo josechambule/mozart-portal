@@ -65,7 +65,6 @@ function AddSubmission(props) {
             name="id"
             ref={idRef}
             defaultValue={id}
-            required
           />
         </div>
         <div className={classes.control}>

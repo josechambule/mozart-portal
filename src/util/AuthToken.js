@@ -10,7 +10,7 @@ export function tokenLoader() {
 }
 
 export function setAuthToken() {
-  localStorage.setItem("token", "85a05c5e-1e3d-11e0-acca-000c29d83bf2");
+  localStorage.setItem("token", localStorage.getItem("token"));
 }
 
 export function checkAuthLoader() {
