@@ -50,8 +50,7 @@ export async function action({ request }) {
       body: JSON.stringify(submissionData),
     });
 
-    if (response.status === 401) {
-      localStorage.removeItem("token");
+    if (response.status === 404) {
       return redirect("/");
     }
 

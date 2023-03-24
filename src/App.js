@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/Home";
-import Submission, { action as submissionAction } from "./pages/Sumission";
+import Submission, { action as submissionAction } from "./pages/Submission";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
 import AuthenticationPage, {

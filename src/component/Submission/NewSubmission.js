@@ -59,7 +59,8 @@ function AddSubmission(props) {
             defaultValue={ano}
             required
           />
-          <input className={classes.nonedisplay}
+          <input
+            className={classes.nonedisplay}
             type="number"
             id="id"
             name="id"
