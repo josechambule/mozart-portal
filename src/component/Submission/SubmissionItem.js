@@ -24,22 +24,22 @@ function SubmissionItem(props) {
             return (
               <tr key={val.id}>
                 <td>{val.id}</td>
-                <td>{val.ano}</td>
-                <td>{val.periodo}</td>
-                <td>{val.parceiro}</td>
-                <td>{val.ficheiro}</td>
-                <td>{val.creadoPor}</td>
+                <td>{val.year}</td>
+                <td>{val.quarter}</td>
+                <td>{val.partner}</td>
+                <td>{val.fileName}</td>
+                <td>{val.user.name}</td>
                 <td>
                   <button
                     className={classes.edit}
                     onClick={() => {
                       submissionCtx.addSubmission({
                         id: val.id,
-                        ano: val.ano,
-                        periodo: val.periodo,
-                        parceiro: val.parceiro,
-                        ficheiro: val.ficheiro,
-                        creadoPor: val.creadoPor,
+                        ano: val.year,
+                        periodo: val.quarter,
+                        parceiro: val.partner,
+                        ficheiro: val.fileName,
+                        creadoPor: val.user.name,
                         password: val.password,
                       });
                       props.onClickEditar();
