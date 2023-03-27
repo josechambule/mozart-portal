@@ -76,7 +76,6 @@ export async function action({ request }) {
     }
 
     if (response.status === 422 || response.status === 401) {
-      console.log(response.status);
       return response;
     }
 
@@ -85,5 +84,5 @@ export async function action({ request }) {
     }
   }
 
-  return redirect("/");
+  return redirect("/submission");
 }

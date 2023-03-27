@@ -28,7 +28,7 @@ function SubmissionItem(props) {
                 <td>{val.quarter}</td>
                 <td>{val.partner}</td>
                 <td>{val.fileName}</td>
-                <td>{val.user.name}</td>
+                <td>{val.createdBy}</td>
                 <td>
                   <button
                     className={classes.edit}
@@ -39,7 +39,7 @@ function SubmissionItem(props) {
                         periodo: val.quarter,
                         parceiro: val.partner,
                         ficheiro: val.fileName,
-                        creadoPor: val.user.name,
+                        creadoPor: val.createdBy,
                         password: val.password,
                       });
                       props.onClickEditar();

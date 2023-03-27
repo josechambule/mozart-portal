@@ -48,7 +48,7 @@ function AddSubmission(props) {
         <button onClick={props.onClose}>X</button>
         <hr />
       </div>
-      <Form method="post">
+      <Form method="post" onSubmit={props.onClose}>
         <div className={classes.control}>
           <label htmlFor="ano">Ano:</label>
           <input

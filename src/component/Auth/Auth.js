@@ -2,20 +2,19 @@ import classes from "./Auth.module.css";
 import Card from "../../Layout/UI/Card/Card"
 import Button from "../../Layout/UI/Button/Button"
 import { Form } from "react-router-dom";
-//import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Auth() {
-  //const redirect = useNavigate();
 
-  /*const submitHandler = (event) => {
-    event.preventDefault();
-    localStorage.setItem('token', '85a05c5e-1e3d-11e0-acca-000c29d83bf2');
-    redirect('/');
-  };*/
+  const [isLoading, setIsLoading] = useState(false);
+
+  const submitHandler = () => {
+    setIsLoading(true);
+  };
 
   return (
     <Card className={classes.login}>
-      <Form method="post">
+      <Form method="post" onSubmit={submitHandler}>
         <div className = {classes.control}
          /* className={`${classes.control} ${
             emailState.isValid === false ? classes.invalid : ""
@@ -49,8 +48,8 @@ function Auth() {
           />
         </div>
         <div className={classes.actions}>
-          <Button type="submit" /*disabled={!formIsValid}*/>
-            Login
+          <Button type="submit" disabled={isLoading}>
+          <i className={`${isLoading === true ? classes.loading : ""}`}></i>Login
           </Button>
         </div>
       </Form>
