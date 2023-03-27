@@ -1,39 +1,98 @@
-.sub {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
+.container {
+  width: 100%;
+  min-height: 80vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 0 0 0;
+}
+
+.wraptable {
   width: 95%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+}
+
+.contenthead {
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 3.5rem 0 rgba(0,0,0,.15);
+  -o-box-shadow: 0 0 3.5rem 0 rgba(0,0,0,.15);
+  -ms-box-shadow: 0 0 3.5rem 0 rgba(0,0,0,.15);
+  position: relative;
+  padding-top: 3.75rem;
+  background-color: #fff;
+}
+
+.cabecalho {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.corpo {
+  max-height: 36.5625rem;
+  position: relative;
+  overflow: auto;
+  overflow: hidden!important;
+  overflow-anchor: none;
+  -ms-overflow-style: none;
+  touch-action: auto;
+  -ms-touch-action: auto;
+}
+
+.rowhead {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
 }
 
 table {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif, Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   text-align: left;
   width: 100%;
 }
 
 th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 0.9rem;
+  padding-right: 0.625rem;
+  padding-bottom: 0.9rem;
+  padding-left: 0.625rem;
   text-align: left;
-  background-color: #4f005f;;
-  color: white;
+  background-color: #6c7ae0;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: unset;
+  width: 15%;  
 }
 
-td, th {
-  border-bottom: 2px solid #ddd;
-  padding: 8px;
+td {
+  font-weight: unset;
+  padding-top: 0.4rem;
+  padding-right: 0.625rem;
+  padding-bottom: 0.4rem;
+  padding-left: 0.625rem;
+  text-align: left;
+  font-family: Lato-Regular;
+  color: gray;
+  line-height: 1.4;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  width: 15%; 
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f8f6ff;
 }
-
+/*
 tr:hover {
   background-color: #ddd;
 }
-
+*/
 .btn {
   background: #3498db;
   background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -85,7 +144,7 @@ tr:hover {
   background-image: -ms-linear-gradient(top, transparent, transparent);
   background-image: -o-linear-gradient(top, transparent, transparent);
   background-image: linear-gradient(to bottom, transparent, transparent);
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 .control {
