@@ -1,6 +1,6 @@
 .login {
   width: 90%;
-  max-width: 40rem;
+  max-width: 20rem;
   margin: 2rem auto;
   padding: 2rem;
 }
@@ -12,24 +12,31 @@
   flex-direction: column;
 }
 
-.control label,
+/*.control label,*/
 .control input {
   display: block;
 }
 
-.control label {
+/*.control label {
   font-weight: bold;
   flex: 1;
   color: #464646;
   margin-bottom: 0.5rem;
+}*/
+
+.loginlabel {
+  font-weight: bold;
+  flex: 1;
+  color: #464646;
 }
 
 .control input {
   flex: 3;
   font: inherit;
-  padding: 0.35rem 0.35rem;
+  padding: 0.625rem 0.625rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-family: FontAwesome;
 }
 
 .control input:focus {
@@ -45,6 +52,7 @@
 
 .actions {
   text-align: right;
+  border-radius: 10px;
 }
 
 .loading{

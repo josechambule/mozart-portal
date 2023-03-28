@@ -38,7 +38,7 @@ function SubmissionItem(props) {
                       <td>{val.createdBy}</td>
                       <td>
                         <button
-                          className={classes.edit}
+                          className={classes.btn}
                           onClick={() => {
                             submissionCtx.addSubmission({
                               id: val.id,

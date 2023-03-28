@@ -10,7 +10,7 @@ export default AuthenticationPage;
 export async function action({ request }) {
   const data = await request.formData();
   const authData = {
-    username: data.get("email"),
+    username: data.get("username"),
     password: data.get("password"),
   };
 
