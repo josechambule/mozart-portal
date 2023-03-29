@@ -10,11 +10,12 @@ function ListSubmissions(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const [fetchedSubmissions, setFetchedSubmissions] = useState();
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const response = await fetch("http://localhost:8085/api/v1/submission", {
+      const response = await fetch("http://localhost:8085/api/v1/submission?page="+currentPage, {
         method: "GET",
         headers: {
           Authorization: "Bearer " + getAuthToken(),
@@ -31,11 +32,27 @@ function ListSubmissions(props) {
     }
 
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   const addNewSubmission = () => {
     submissionCtx.updateMode(false);
     props.onShowAddSubmission();
+  };
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber-1);
+  };
+
+  const previousPage = () => {
+    if (currentPage !== 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== fetchedSubmissions.totalPages-1) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
@@ -54,6 +71,9 @@ function ListSubmissions(props) {
           <SubmissionItem
             dados={fetchedSubmissions}
             onClickEditar={props.onShowAddSubmission}
+            paginate={paginate}
+            previousPage={previousPage}
+            nextPage={nextPage}
           />
         )}
       </div>

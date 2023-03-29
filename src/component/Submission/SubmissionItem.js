@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import classes from "./CSS/SubmissionList.module.css";
 import SubmissionContext from "../../store/submission-context";
 import Paginator from "../../Layout/UI/Pagination/Paginator";
@@ -6,29 +6,21 @@ import Paginator from "../../Layout/UI/Pagination/Paginator";
 function SubmissionItem(props) {
   const submissionCtx = useContext(SubmissionContext);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const dataPerPage = 3;
-  const dataList = props.dados;
+  const dataList = props.dados.submission;
+  const totalPages = props.dados.totalPages;
 
-  const indexOfLastPage = currentPage * dataPerPage;
-  const indexOfFirstPage = indexOfLastPage - dataPerPage;
-  const currentDataList = dataList.slice(indexOfFirstPage, indexOfLastPage);
-  console.log(currentDataList);
+  console.log(dataList);
 
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    props.paginate(pageNumber);
   };
 
   const previousPage = () => {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
+      props.previousPage();
   };
 
   const nextPage = () => {
-    if (currentPage !== Math.ceil(dataList.length / dataPerPage)) {
-      setCurrentPage(currentPage + 1);
-    }
+      props.nextPage();
   };
 
   return (
@@ -53,7 +45,7 @@ function SubmissionItem(props) {
           <div className={classes.corpo}>
             <table>
               <tbody>
-                {currentDataList.map((val) => {
+                {dataList.map((val) => {
                   return (
                     <tr key={val.id}>
                       <td>{val.id}</td>
@@ -90,8 +82,7 @@ function SubmissionItem(props) {
           <hr />
           <div className="blog-content-section">
             <Paginator
-              dataPerPage={dataPerPage}
-              totalData={dataList.length}
+              totalPages={totalPages}
               paginate={paginate}
               previousPage={previousPage}
               nextPage={nextPage}

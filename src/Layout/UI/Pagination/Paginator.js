@@ -3,7 +3,7 @@ import classes from "./Paginator.module.css";
 function Paginator(props) {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(props.totalData / props.dataPerPage); i++) {
+  for (let i = 1; i <= props.totalPages; i++) {
     pageNumbers.push(i);
   }
 

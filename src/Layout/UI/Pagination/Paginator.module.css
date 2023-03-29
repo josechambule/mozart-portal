@@ -26,12 +26,12 @@ ul {
 	background: #01273a;
 }
 
-.pagination .pagenumber li a.active {
+.pagination .pagenumber li a:active {
 	color: #fff;
 	background: #01273a;
 }
 
-.pagination .active:hover {
+ li a:active {
 	color: #00a8ff;
 	background: #fff;
 }
