@@ -8,7 +8,7 @@ import AuthenticationPage, {
   action as authAction,
 } from "./pages/Authentication";
 import { action as logoutAction } from "./pages/Logout";
-import { checkAuthLoader, tokenLoader } from "./util/AuthToken";
+import { checkAuthLoader, existAuthLoader, tokenLoader } from "./util/AuthToken";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: "auth",
         element: <AuthenticationPage />,
+        loader: existAuthLoader,
         action: authAction,
       },
       {

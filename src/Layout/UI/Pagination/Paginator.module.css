@@ -1,0 +1,37 @@
+ul {
+	list-style: none;
+}
+
+.pagination {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	margin-top: 5px;
+	gap: 10px;
+}
+
+.pagination .pagenumber {
+	font-size: 16px;
+	font-weight: 600;
+	color: #fff;
+	background: #00a8ff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.pagination .pagenumber:hover {
+	color: #fff;
+	background: #01273a;
+}
+
+.pagination .pagenumber li a.active {
+	color: #fff;
+	background: #01273a;
+}
+
+.pagination .active:hover {
+	color: #00a8ff;
+	background: #fff;
+}

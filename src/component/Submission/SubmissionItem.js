@@ -1,9 +1,35 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import classes from "./CSS/SubmissionList.module.css";
 import SubmissionContext from "../../store/submission-context";
+import Paginator from "../../Layout/UI/Pagination/Paginator";
 
 function SubmissionItem(props) {
   const submissionCtx = useContext(SubmissionContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const dataPerPage = 3;
+  const dataList = props.dados;
+
+  const indexOfLastPage = currentPage * dataPerPage;
+  const indexOfFirstPage = indexOfLastPage - dataPerPage;
+  const currentDataList = dataList.slice(indexOfFirstPage, indexOfLastPage);
+  console.log(currentDataList);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const previousPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== Math.ceil(dataList.length / dataPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -27,7 +53,7 @@ function SubmissionItem(props) {
           <div className={classes.corpo}>
             <table>
               <tbody>
-                {props.dados.map((val) => {
+                {currentDataList.map((val) => {
                   return (
                     <tr key={val.id}>
                       <td>{val.id}</td>
@@ -60,6 +86,16 @@ function SubmissionItem(props) {
                 })}
               </tbody>
             </table>
+          </div>
+          <hr />
+          <div className="blog-content-section">
+            <Paginator
+              dataPerPage={dataPerPage}
+              totalData={dataList.length}
+              paginate={paginate}
+              previousPage={previousPage}
+              nextPage={nextPage}
+            />
           </div>
         </div>
       </div>
