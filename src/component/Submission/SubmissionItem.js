@@ -9,8 +9,6 @@ function SubmissionItem(props) {
   const dataList = props.dados.submission;
   const totalPages = props.dados.totalPages;
 
-  console.log(dataList);
-
   const paginate = (pageNumber) => {
     props.paginate(pageNumber);
   };

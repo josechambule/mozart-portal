@@ -1,13 +1,20 @@
-import { Form, NavLink, useRouteLoaderData, useNavigate } from "react-router-dom";
+import {
+  Form,
+  NavLink,
+  useRouteLoaderData,
+  useNavigate,
+} from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
-  const token = useRouteLoaderData("root");
   const redirect = useNavigate();
+  const loaderValues = useRouteLoaderData("root");
+  const token = !loaderValues ? null : loaderValues.token;
+  const role = !loaderValues ? null : loaderValues.role;
 
   const login = () => {
-    redirect('auth');
-  }
+    redirect("auth");
+  };
 
   return (
     <nav className={classes.nav}>
@@ -35,6 +42,19 @@ function MainNavigation() {
             >
               Submission
             </NavLink>
+          </li>
+        )}
+        {token && role === "ADMIN" && (
+          <li>
+            <div className={classes.dropdown}>
+                <label className={classes.dropbtn}>
+                Settings
+                </label>
+                <div className={classes["dropdown-content"]}>
+                  <NavLink to="submission">Basic Settings</NavLink>
+                  <NavLink to="submission">Security Settings</NavLink>
+                </div>
+              </div>
           </li>
         )}
         {token && (

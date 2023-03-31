@@ -8,6 +8,20 @@ export function getTokenDuration() {
   return duration;
 }
 
+export function getAuthRole() {
+  const role = localStorage.getItem("role");
+  let rlm = null;
+  if (!role) {
+    return null;
+  }
+   role.split(",").map((rl) => {
+      if (rl === "ADMIN") {
+        rlm = rl;
+      }
+    })
+  return rlm;
+}
+
 export function getAuthToken() {
   const token = localStorage.getItem("token");
 
@@ -25,7 +39,16 @@ export function getAuthToken() {
 }
 
 export function tokenLoader() {
-  return getAuthToken();
+  const loaderValues = {
+    token: getAuthToken(),
+    role: getAuthRole(),
+  };
+
+  if(!getAuthToken()) {
+    return null;
+  }
+  
+  return loaderValues;
 }
 
 export function setAuthToken() {
