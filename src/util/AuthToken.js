@@ -10,15 +10,15 @@ export function getTokenDuration() {
 
 export function getAuthRole() {
   const role = localStorage.getItem("role");
-  let rlm = null;
+
   if (!role) {
     return null;
   }
-   role.split(",").map((rl) => {
-      if (rl === "ADMIN") {
-        rlm = rl;
-      }
-    })
+
+  const rlm = role.split(",").find((element) => {
+    return element === "ADMIN";
+  });
+
   return rlm;
 }
 
@@ -31,8 +31,9 @@ export function getAuthToken() {
 
   const tokenDuration = getTokenDuration();
 
-  if (tokenDuration < 0) { // means token has expired
-    return "EXPIRED";    
+  if (tokenDuration < 0) {
+    // means token has expired
+    return "EXPIRED";
   }
 
   return token;
@@ -44,10 +45,10 @@ export function tokenLoader() {
     role: getAuthRole(),
   };
 
-  if(!getAuthToken()) {
+  if (!getAuthToken()) {
     return null;
   }
-  
+
   return loaderValues;
 }
 
@@ -72,5 +73,5 @@ export function existAuthLoader() {
     return redirect("/");
   }
 
-  return null;  
+  return null;
 }

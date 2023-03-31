@@ -51,7 +51,7 @@ function MainNavigation() {
                 Settings
                 </label>
                 <div className={classes["dropdown-content"]}>
-                  <NavLink to="submission">Basic Settings</NavLink>
+                  <NavLink to="basicsettings">Basic Settings</NavLink>
                   <NavLink to="submission">Security Settings</NavLink>
                 </div>
               </div>

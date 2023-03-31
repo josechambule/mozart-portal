@@ -8,7 +8,14 @@ import AuthenticationPage, {
   action as authAction,
 } from "./pages/Authentication";
 import { action as logoutAction } from "./pages/Logout";
-import { checkAuthLoader, existAuthLoader, tokenLoader } from "./util/AuthToken";
+import {
+  checkAuthLoader,
+  existAuthLoader,
+  tokenLoader,
+} from "./util/AuthToken";
+import BasicSettings, {
+  action as basicSettingsAction,
+} from "./component/User/BasicSettings";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +45,12 @@ const router = createBrowserRouter([
       {
         path: "logout",
         action: logoutAction,
+      },
+      {
+        path: "basicsettings",
+        element: <BasicSettings />,
+        loader: checkAuthLoader,
+        action: basicSettingsAction,
       },
     ],
   },

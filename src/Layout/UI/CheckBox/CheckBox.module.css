@@ -1,0 +1,8 @@
+.checkbox {
+    display: flex;
+    align-items: stretch;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: medium;
+    font-weight: 2px;
+    padding-right: 1rem;
+}
