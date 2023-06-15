@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  mysql-mozart-portal-db:
+    image: mysql:8.0.33
+    container_name: mysql-mozart-portal-db
+    ports:
+      - 49760:3306
+    volumes:
+      - /etc/localtime:/etc/localtime
+    restart: unless-stopped
+
+  app:
+    container_name: mozart-portal
+    image: mozart-portal-image
+    volumes:
+      - /etc/localtime:/etc/localtime
+    build: 
+      context: -
+    ports:
+      - 8181:8080
+      - 8001:8000
+    depends_on:
+      - mysql-mozart-portal-db
+    restart: unless-stopped  
