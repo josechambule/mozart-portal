@@ -10,6 +10,16 @@ services:
       - /etc/localtime:/etc/localtime
     restart: unless-stopped
 
+  mozart-backend-service:
+    image: openjdk:8-alpine
+    command: /home/mozart/intall.sh
+    container_name: mozart-backend-service
+    network_mode: host
+    working_dir: /home/mozart
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime
+
   app:
     container_name: mozart-portal
     image: mozart-portal-image
