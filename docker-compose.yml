@@ -29,7 +29,6 @@ services:
       context: .
     ports:
       - 8181:3000
-      - 8001:8000
     depends_on:
       - mysql-mozart-portal-db
     restart: unless-stopped  
