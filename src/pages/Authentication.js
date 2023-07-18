@@ -14,7 +14,7 @@ export async function action({ request }) {
     password: data.get("password"),
   };
 
-  const response = await fetch("http://localhost:8085/api/v1/auth/login", {
+  const response = await fetch("http://mozart-portal-backend:8085/api/v1/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

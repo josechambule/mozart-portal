@@ -41,7 +41,7 @@ export async function action({ request }) {
 
   if (data.get("id") === "") {
     submissionData["id"]=0;
-    const response = await fetch("http://localhost:8085/api/v1/submission", {
+    const response = await fetch("http://mozart-portal-backend:8085/api/v1/submission", {
       method: "POST",
       headers: {
         'Authorization': 'Bearer ' + getAuthToken(),
@@ -62,7 +62,7 @@ export async function action({ request }) {
       throw json({ message: "Could not authenticate user." }, { status: 500 });
     }
   } else {
-    const response = await fetch("http://localhost:8085/api/v1/submission", {
+    const response = await fetch("http://mozart-portal-backend:8085/api/v1/submission", {
       method: "PUT",
       headers: {
         'Authorization': 'Bearer ' + getAuthToken(),

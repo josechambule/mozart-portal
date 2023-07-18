@@ -162,7 +162,7 @@ export async function action({ request }) {
     role: roleList,
   };
 
-  const response = await fetch("http://localhost:8085/api/v1/auth/sign", {
+  const response = await fetch("http://mozart-portal-backend:8085/api/v1/auth/sign", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
